@@ -40,3 +40,7 @@ class AbstractCar():
     @abstractmethod
     def add_cambio(self):
         pass
+
+    @abstractmethod
+    def andar(self):
+        pass

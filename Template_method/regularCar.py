@@ -2,15 +2,16 @@ from .abstractCar import AbstractCar
 
 class RegularCar(AbstractCar):
 
-    def __init__(self) -> None:
-        self.porta = None
-        self.qtd_portas = None
-        self.pneus = None
-        self.parabrisa = None
-        self.motor = None
-        self.nivel_combustivel = None
-        self.tipo_combustivel = None
-        self.cambio = None
+    def __init__(self, qtd_portas,tipo_porta, tipo_pneu, tipo_combustivel, tipo_motor, tipo_parabrisa, tipo_cambio) -> None:
+        super().__init__()
+        self.add_porta(qtd_portas,tipo_porta)
+        self.add_pneu(tipo_pneu)
+        self.add_parabrisa(tipo_parabrisa)
+        self.add_motor(tipo_motor)
+        self.add_cambio(tipo_cambio)
+        self.add_tipo_combustivel(tipo_combustivel)
+        self.abastecer()
+        print("Carro Regular criado com sucesso!\n\n")
 
     def add_porta(self,qtd_porta,tipo_porta):
         self.porta = tipo_porta
@@ -40,3 +41,12 @@ class RegularCar(AbstractCar):
     def add_cambio(self,tipo_cambio):
         self.cambio = tipo_cambio
         print(f'adicionado cambio tipo {tipo_cambio}')
+
+    def andar(self, distancia):
+        # O carro regular faz 20 km a cada 1% de combustível.
+        gasto = distancia / 20
+        if self.nivel_combustivel > gasto:
+            self.nivel_combustivel -= gasto
+            print(f'Combutível tipo {self.tipo_combustivel}.\nNível atual do combutível {self.nivel_combustivel}%.')
+        else:
+            print(f"Essa distância é maior que o suportado pelo nível de combutível atual")
