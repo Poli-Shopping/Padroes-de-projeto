@@ -7,3 +7,7 @@ class Command():
     def execute():
         """Executa uma função e armazena num histórico."""
         pass
+
+    def undo():
+        """Desfaz uma ação executada"""
+        pass
