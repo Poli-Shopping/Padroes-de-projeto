@@ -5,7 +5,7 @@ from Template_method.electricCar import ElectricCar
 
 def run_carro_blindado():
     carro_blindado = BlindadoCar(4, "V8")
-    
+
     carro_blindado.andar(250)
     carro_blindado.ativar_modo_anfibio()
     carro_blindado.andar(250)
