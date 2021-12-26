@@ -20,11 +20,11 @@ class BlindadoCar(AbstractCar):
         print(f'criando {self.qtd_portas} portas do tipo {self.porta}.')
 
     def add_pneus(self):
-        self.pneus = "À prova de balas"
+        self.pneus = "Misto - À prova de balas"
         print(f'criando 4 pneus do tipo {self.pneus}.')
     
     def add_parabrisa(self):
-        self.parabrisa = "À prova de balas"
+        self.parabrisa = "Vidro Temperado"
         print(f'criando parabrisa do tipo {self.parabrisa}.')
 
     def add_motor(self, tipo_motor):

@@ -41,3 +41,12 @@ class RegularCar(AbstractCar):
     def add_cambio(self,tipo_cambio):
         self.cambio = tipo_cambio
         print(f'adicionado cambio tipo {tipo_cambio}')
+
+    def andar(self, distancia):
+        # O carro regular faz 20 km a cada 1% de combustível.
+        gasto = distancia / 20
+        if self.nivel_combustivel > gasto:
+            self.nivel_combustivel -= gasto
+            print(f'Combutível tipo {self.tipo_combustivel}.\nNível atual do combutível {self.nivel_combustivel}%.')
+        else:
+            print(f"Essa distância é maior que o suportado pelo nível de combutível atual")

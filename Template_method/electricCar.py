@@ -2,7 +2,7 @@ from .abstractCar import AbstractCar
 
 class ElectricCar(AbstractCar):
 
-    def __init__(self, qtd_portas, tipo_porta, tipo_pneu,  tipo_parabrisa) -> None:
+    def __init__(self, qtd_portas, tipo_porta, tipo_pneu, tipo_parabrisa) -> None:
         super().__init__()
         self.add_porta(qtd_portas, tipo_porta)
         self.add_pneu(tipo_pneu)
@@ -21,7 +21,7 @@ class ElectricCar(AbstractCar):
 
     def add_pneu(self,tipo_pneu):
         self.pneus = tipo_pneu
-        print(f'Criando 4 Pneus do tipo {self.pneu}.')
+        print(f'Criando 4 Pneus do tipo {self.pneus}.')
     
     def add_parabrisa(self,tipo_parabrisa):
         self.parabrisa = tipo_parabrisa
@@ -42,3 +42,12 @@ class ElectricCar(AbstractCar):
     def add_cambio(self):
         self.cambio = "Automátio"
         print(f'Criando câmbio do tipo {self.cambio}.')
+
+    def andar(self, distancia):
+        # O carro elétrico faz 30 km a cada 1% de bateria.
+        gasto = distancia / 30
+        if self.nivel_combustivel > gasto:
+            self.nivel_combustivel -= gasto
+            print(f'Nível atual da bateria {self.nivel_combustivel}%.')
+        else:
+            print(f"Essa distância é maior que o suportado pelo nível de combutível atual") 

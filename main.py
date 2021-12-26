@@ -17,11 +17,23 @@ def run_carro_blindado():
 
     
 def run_carro_eletrico():
-    carro_eletrico = ElectricCar()
+    carro_eletrico = ElectricCar(4, "Automatica", "Onroad", "Vidro Temperado")
+    carro_eletrico.andar(250)
+    carro_eletrico.andar(250)
+    carro_eletrico.andar(350)
+    carro_eletrico.andar(250)
+    carro_eletrico.abastecer()
+    carro_eletrico.andar(250)
 
 
 def run_carro_regular():
-    carro_regular = RegularCar()
+    carro_regular = RegularCar(2 ,"Comum", "Offroad", "Gás", "V12", "Vidro laminado", "Manual")
+    carro_regular.andar(250)
+    carro_regular.andar(250)
+    carro_regular.andar(350)
+    carro_regular.andar(250)
+    carro_regular.abastecer()
+    carro_regular.andar(250)
 
 
 def run():
