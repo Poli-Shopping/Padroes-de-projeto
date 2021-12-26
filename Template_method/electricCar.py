@@ -1,6 +1,6 @@
-from abstractCar import AbstractCar
+from .abstractCar import AbstractCar
 
-class EletricCar(AbstractCar):
+class ElectricCar(AbstractCar):
 
     def __init__(self) -> None:
         self.porta = None

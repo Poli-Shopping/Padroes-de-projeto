@@ -1,4 +1,4 @@
-from abstractCar import AbstractCar
+from .abstractCar import AbstractCar
 
 class RegularCar(AbstractCar):
 
@@ -40,4 +40,3 @@ class RegularCar(AbstractCar):
     def add_cambio(self,tipo_cambio):
         self.cambio = tipo_cambio
         print(f'adicionado cambio tipo {tipo_cambio}')
-
