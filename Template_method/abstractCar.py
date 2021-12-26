@@ -13,7 +13,6 @@ class AbstractCar():
         self.tipo_combustivel = None
         self.cambio = None
 
-
     @abstractmethod
     def add_porta(self):
         pass
@@ -28,6 +27,10 @@ class AbstractCar():
 
     @abstractmethod
     def add_motor(self):
+        pass
+
+    @abstractmethod
+    def add_tipo_combustivel(self):
         pass
 
     @abstractmethod
