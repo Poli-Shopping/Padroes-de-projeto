@@ -2,15 +2,16 @@ from .abstractCar import AbstractCar
 
 class RegularCar(AbstractCar):
 
-    def __init__(self) -> None:
-        self.porta = None
-        self.qtd_portas = None
-        self.pneus = None
-        self.parabrisa = None
-        self.motor = None
-        self.nivel_combustivel = None
-        self.tipo_combustivel = None
-        self.cambio = None
+    def __init__(self, qtd_portas,tipo_porta, tipo_pneu, tipo_combustivel, tipo_motor, tipo_parabrisa, tipo_cambio) -> None:
+        super().__init__()
+        self.add_porta(qtd_portas,tipo_porta)
+        self.add_pneu(tipo_pneu)
+        self.add_parabrisa(tipo_parabrisa)
+        self.add_motor(tipo_motor)
+        self.add_cambio(tipo_cambio)
+        self.add_tipo_combustivel(tipo_combustivel)
+        self.abastecer()
+        print("Carro Regular criado com sucesso!\n\n")
 
     def add_porta(self,qtd_porta,tipo_porta):
         self.porta = tipo_porta
