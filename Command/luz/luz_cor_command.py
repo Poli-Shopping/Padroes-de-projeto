@@ -1,5 +1,5 @@
 
-from .command import Command
+from ..command import Command
 from .luz import Luz
 
 class LuzCorCommand(Command):

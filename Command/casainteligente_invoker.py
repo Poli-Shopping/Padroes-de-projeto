@@ -1,3 +1,4 @@
+
 class CasaInteligenteInvoker():
 
     def __init__(self) -> None:
@@ -7,7 +8,7 @@ class CasaInteligenteInvoker():
         self.commands[key] = commands
     
     def executar_comando(self,key):
-        
+
         if key in self.commands: print('não contém')
         else:
             self.commands[key].execute()
