@@ -1,4 +1,4 @@
-from .luz import Luz
+from ..luz.luz import Luz
 
 class Garagem():
 

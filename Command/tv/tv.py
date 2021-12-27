@@ -60,6 +60,17 @@ class TV():
             print("A TV está desligada")
             return self.canal_atual
 
+    def voltar_canal(self):
+        if self.is_on:
+            canal = self.canal_atual
+            self.canal_atual = self.canal_anteiror
+            self.canal_anteiror = canal
+            print(f"Mudança do canal {self.canal_anteiror} para o canal {self.canal_atual}")
+            return self.canal_atual
+        else:
+            print("A TV está desligada")
+            return self.canal_atual
+
     def status_tv(self):
         msg_ligada = f"A TV {self.nome} está ligada no canal {self.canal_atual} com volume {self.volume} e brilho {50}%."
         msg_desligada = f"A TV {self.nome} está desligada."
