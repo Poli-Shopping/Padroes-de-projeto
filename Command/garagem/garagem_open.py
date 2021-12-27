@@ -1,5 +1,5 @@
 
-from .command import Command
+from ..command import Command
 from .garagem import Garagem
 
 class GaragemOpen(Command):
