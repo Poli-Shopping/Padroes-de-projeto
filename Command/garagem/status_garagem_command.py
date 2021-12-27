@@ -9,4 +9,5 @@ class GaragemOpen(Command):
     def execute(self):
         print(self.garagem.verificarStatus())
         
-    
+    def undo(self):
+        print("Essa classe não possui um método undo.")

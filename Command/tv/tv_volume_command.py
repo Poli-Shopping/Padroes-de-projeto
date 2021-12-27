@@ -1,4 +1,4 @@
-from .command import Command
+from command import Command
 from .tv import TV
 
 class TVVolumeCommand(Command):

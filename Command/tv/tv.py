@@ -78,6 +78,6 @@ class TV():
             return self.canal_atual
 
     def __str__(self):
-        msg_ligada = f"A TV {self.nome} está ligada no canal {self.canal_atual} com volume {self.volume} e brilho {50}%."
-        msg_desligada = f"A TV {self.nome} está desligada."
+        msg_ligada = f"A TV '{self.nome}' está ligada no canal {self.canal_atual} com volume {self.volume} e brilho {self.brilho}%."
+        msg_desligada = f"A TV '{self.nome}' está desligada."
         return msg_ligada if self.is_on else msg_desligada
