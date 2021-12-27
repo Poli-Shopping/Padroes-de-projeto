@@ -6,6 +6,7 @@ class TV():
         self.brilho = 50
         self.volume = 20
         self.canal_atual = 13
+        self.canal_anteiror = None
 
     def ligar(self):
         self.is_on = True
@@ -51,13 +52,13 @@ class TV():
 
     def mudar_canal(self, canal):
         if self.is_on:
+            self.canal_anteiror = self.canal_atual
             self.canal_atual = canal
-            print(f"Mudança para o canal {self.canal_atual}")
-            return self.canal
+            print(f"Mudança do canal {self.canal_anteiror} para o canal {self.canal_atual}")
+            return self.canal_atual
         else:
             print("A TV está desligada")
             return self.canal_atual
-
 
     def status_tv(self):
         msg_ligada = f"A TV {self.nome} está ligada no canal {self.canal_atual} com volume {self.volume} e brilho {50}%."
