@@ -10,12 +10,10 @@ class TV():
 
     def ligar(self):
         self.is_on = True
-        print(f"A tv foi ligada com sucesso.")
         return self.is_on
     
     def desligar(self):
         self.is_on = False
-        print(f"A tv foi desligada com sucesso.")
         return self.is_on
 
     def aumentar_brilho(self):
@@ -35,20 +33,28 @@ class TV():
         return self.brilho
 
     def aumentar_volume(self):
-        if self.volume < 100:
-            self.volume += 1
-            print(f"O volume está em {self.volume}.")
+        if self.is_on:
+            if self.volume < 100:
+                self.volume += 1
+                print(f"O volume está em {self.volume}.")
+            else:
+                print(f"O volume já está no máximo.")
+            return self.volume
         else:
-            print(f"O volume já está no máximo.")
-        return self.volume
+            print("A TV está desligada")
+            return self.volume
 
     def diminuir_volume(self):
-        if self.volume < 100:
-            self.volume -= 1
-            print(f"O volume está em {self.volume}.")
+        if self.is_on:
+            if self.volume > 0:
+                self.volume -= 1
+                print(f"O volume está em {self.volume}.")
+            else:
+                print(f"O volume já está no máximo.")
+            return self.volume
         else:
-            print(f"O volume já está no máximo.")
-        return self.volume
+            print("A TV está desligada")
+            return self.volume
 
     def mudar_canal(self, canal):
         if self.is_on:
@@ -71,7 +77,7 @@ class TV():
             print("A TV está desligada")
             return self.canal_atual
 
-    def status_tv(self):
+    def __str__(self):
         msg_ligada = f"A TV {self.nome} está ligada no canal {self.canal_atual} com volume {self.volume} e brilho {50}%."
         msg_desligada = f"A TV {self.nome} está desligada."
         return msg_ligada if self.is_on else msg_desligada
