@@ -1,6 +1,8 @@
 from casainteligente_invoker import CasaInteligenteInvoker
 
 from luz.luz_power_command import LuzPowerCommand
+from luz.luz_intensidade_command import LuzIntensidadeCommand
+from luz.luz_cor_command import LuzCorCommand
 from luz.luz import  Luz
 
 from tv.tv import TV
@@ -12,6 +14,27 @@ from tv.tv_status_command import TVStatusCommand
 
 from computador.computador import Computador
 from computador.computador_power_command import ComputadorPowerCommand
+
+def run_light(alexa: CasaInteligenteInvoker):
+    luz_quarto = Luz('quarto')
+    luz_quarto_power_command = LuzPowerCommand(luz_quarto)
+    luz_quarto_intensidade_command = LuzIntensidadeCommand(luz_quarto)
+    luz_quarto_cor_command = LuzCorCommand(luz_quarto)
+
+    luz_sala = Luz('sala')
+    luz_sala_power_command = LuzPowerCommand(luz_sala)
+    luz_sala_intensidade_command = LuzIntensidadeCommand(luz_sala)
+    luz_sala_cor_command = LuzCorCommand(luz_sala)
+
+    alexa.addCommands('luz quarto power',  luz_quarto_power_command)
+    alexa.addCommands('luz quarto intensidade', luz_quarto_intensidade_command)
+    alexa.addCommands('luz quarto mudar cor', luz_quarto_cor_command)
+
+    alexa.addCommands('luz sala power',  luz_sala_power_command)
+    alexa.addCommands('luz sala intensidade', luz_sala_intensidade_command)
+    alexa.addCommands('luz sala mudar cor', luz_sala_cor_command)
+
+    alexa.executar_comando('luz sala power')
 
 
 def run_TV(vanellope: CasaInteligenteInvoker):
@@ -66,5 +89,6 @@ def run():
     vanellope = CasaInteligenteInvoker()
     run_TV(vanellope)
     run_computador(vanellope)
+    run_light(vanellope)
 
 run()
