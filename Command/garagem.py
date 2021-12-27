@@ -15,3 +15,7 @@ class Garagem():
         self.open = False
         self.luz.desligar()
         print('Garagem fechou')
+    
+    def verificarStatus(self):
+        if self.open : return 'Garagem está aberta'
+        else: return 'Garagem está fechada'
