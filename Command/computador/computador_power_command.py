@@ -12,3 +12,4 @@ class ComputadorPowerCommand(Command):
 
     def undo(self):
         self.computador.desligar()
+        self.computador.status_computador()

@@ -9,6 +9,3 @@ class LuzCorCommand(Command):
 
     def execute(self,cor):
         self.luz.mudarCor(cor)
-    
-
-    
