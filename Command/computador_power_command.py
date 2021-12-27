@@ -1,7 +1,7 @@
 from .command import Command
 from .computador import Computador
 
-class Computador_Power_Command(Command):
+class ComputadorPowerCommand(Command):
 
     def __init__(self, computador:Computador) -> None:
         self.computador = computador
