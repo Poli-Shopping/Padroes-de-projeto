@@ -10,10 +10,9 @@ class Computador():
     
     def desligar(self):
         self.is_on = False
-        print("O computador foi desligado com sucesso.")
         return self.is_on
 
     def status_computador(self):
         msg_ligado = f"O computador {self.nome} está ligado"
         msg_desligado = f"O computador {self.nome} está desligado."
-        return msg_ligado if self.is_on else msg_desligado
+        print(msg_ligado if self.is_on else msg_desligado)
