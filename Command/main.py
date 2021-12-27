@@ -59,12 +59,17 @@ def run_TV(vanellope: CasaInteligenteInvoker):
     vanellope.undo_comando('tv sala power')
 
 def run_computador(vanellope: CasaInteligenteInvoker):
-    pass
-
+    computador = Computador('Jarvis')
+    jarvis_power_command = ComputadorPowerCommand(computador)
+    
+    vanellope.addCommands('acorda criança, o papai chegou!', jarvis_power_command)
+    
+    vanellope.executar_comando('acorda criança, o papai chegou!')
+    vanellope.undo_comando('acorda criança, o papai chegou!')
 
 def run():
     vanellope = CasaInteligenteInvoker()
-    run_TV(vanellope)
+    #run_TV(vanellope)
     run_computador(vanellope)
 
 run()
