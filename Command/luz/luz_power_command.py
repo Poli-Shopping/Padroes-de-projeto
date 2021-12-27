@@ -1,4 +1,4 @@
-from ..command import Command
+from command import Command
 from .luz import Luz
 
 class LuzPowerCommand(Command):
@@ -11,5 +11,3 @@ class LuzPowerCommand(Command):
 
     def undo(self):
         self.luz.desligar()
-
-    
