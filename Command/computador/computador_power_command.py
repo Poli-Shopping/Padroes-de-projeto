@@ -8,8 +8,7 @@ class ComputadorPowerCommand(Command):
 
     def execute(self):
         self.computador.acorda_crianca_o_papai_chegou()
-        self.computador.status_computador()
 
     def undo(self):
         self.computador.desligar()
-        self.computador.status_computador()
+        print(self.computador)
