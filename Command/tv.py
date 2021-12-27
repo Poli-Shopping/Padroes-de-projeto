@@ -61,5 +61,5 @@ class TV():
 
     def status_tv(self):
         msg_ligada = f"A TV {self.nome} está ligada no canal {self.canal_atual} com volume {self.volume} e brilho {50}%."
-        return msg_ligada if self.is_on else f"A TV {self.nome} está desligada."
-    
+        msg_desligada = f"A TV {self.nome} está desligada."
+        return msg_ligada if self.is_on else msg_desligada
