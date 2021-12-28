@@ -13,12 +13,12 @@ class Luz():
 
     def ligar(self):
         self.is_on = True
-        print(f'A luz agora está {self.status_luz()}')
+        print(f'A luz do(a) {self.nome} agora está {self.status_luz()}')
         return self.is_on
 
     def desligar(self):
         self.is_on = False
-        print(f'A luz agora está {self.status_luz()}')
+        print(f'A luz do(a) {self.nome} agora está {self.status_luz()}')
         return self.is_on
     
     def aumentarIntensidade(self):
@@ -37,7 +37,7 @@ class Luz():
 
     def mudarCor(self,cor):
         self.cor = cor
-        print(f'a cor da luz agora é {self.cor}')
+        print(f'a cor da luz do(a) {self.nome} agora é {self.cor}')
         
     
 

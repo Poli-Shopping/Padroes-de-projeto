@@ -1,7 +1,7 @@
-from ..command import Command
+from command import Command
 from .garagem import Garagem
 
-class GaragemOpen(Command):
+class GaragemStatus(Command):
 
     def __init__(self, garagem:Garagem) -> None:
         self.garagem = garagem

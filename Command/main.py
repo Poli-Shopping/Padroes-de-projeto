@@ -12,8 +12,13 @@ from tv.tv_volume_command import TVVolumeCommand
 from tv.tv_mudar_canal_command import TVMudarCanalCommand
 from tv.tv_status_command import TVStatusCommand
 
+
 from computador.computador import Computador
 from computador.computador_power_command import ComputadorPowerCommand
+
+from garagem.garagem import Garagem
+from garagem.garagem_open_command import GaragemOpen
+from garagem.status_garagem_command import GaragemStatus
 
 def run_light(alexa: CasaInteligenteInvoker):
     luz_quarto = Luz('quarto')
@@ -40,7 +45,14 @@ def run_light(alexa: CasaInteligenteInvoker):
     [alexa.undo_comando('luz sala intensidade') for _ in range(20)]
     alexa.undo_comando('luz sala power')
 
+    alexa.executar_comando('luz quarto power')
+    [alexa.undo_comando('luz quarto intensidade') for _ in range(51)]
+    [alexa.executar_comando('luz quarto intensidade') for _ in range(20)]
+    alexa.executar_comando('luz quarto mudar cor','roxo')
+    alexa.undo_comando('luz quarto power')
 
+def run_garagem(alexa: CasaInteligenteInvoker):
+    pass
 def run_TV(vanellope: CasaInteligenteInvoker):
     TV_quarto = TV('TV do quarto')
     TV_quarto_power_command = TVPowerCommand(TV_quarto)
