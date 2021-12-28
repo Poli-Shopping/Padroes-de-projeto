@@ -20,7 +20,7 @@ from garagem.garagem import Garagem
 from garagem.garagem_open_command import GaragemOpen
 from garagem.status_garagem_command import GaragemStatus
 
-def run_light(alexa: CasaInteligenteInvoker):
+def run_light(vanellope: CasaInteligenteInvoker):
     luz_quarto = Luz('quarto')
     luz_quarto_power_command = LuzPowerCommand(luz_quarto)
     luz_quarto_intensidade_command = LuzIntensidadeCommand(luz_quarto)
@@ -31,37 +31,37 @@ def run_light(alexa: CasaInteligenteInvoker):
     luz_sala_intensidade_command = LuzIntensidadeCommand(luz_sala)
     luz_sala_cor_command = LuzCorCommand(luz_sala)
 
-    alexa.addCommands('luz quarto power',  luz_quarto_power_command)
-    alexa.addCommands('luz quarto intensidade', luz_quarto_intensidade_command)
-    alexa.addCommands('luz quarto mudar cor', luz_quarto_cor_command)
+    vanellope.addCommands('luz quarto power',  luz_quarto_power_command)
+    vanellope.addCommands('luz quarto intensidade', luz_quarto_intensidade_command)
+    vanellope.addCommands('luz quarto mudar cor', luz_quarto_cor_command)
 
-    alexa.addCommands('luz sala power',  luz_sala_power_command)
-    alexa.addCommands('luz sala intensidade', luz_sala_intensidade_command)
-    alexa.addCommands('luz sala mudar cor', luz_sala_cor_command)
+    vanellope.addCommands('luz sala power',  luz_sala_power_command)
+    vanellope.addCommands('luz sala intensidade', luz_sala_intensidade_command)
+    vanellope.addCommands('luz sala mudar cor', luz_sala_cor_command)
 
-    alexa.executar_comando('luz sala power')
-    [alexa.executar_comando('luz sala intensidade') for _ in range(51)]
-    alexa.executar_comando('luz sala mudar cor','azul')
-    [alexa.undo_comando('luz sala intensidade') for _ in range(20)]
-    alexa.undo_comando('luz sala power')
+    vanellope.executar_comando('luz sala power')
+    [vanellope.executar_comando('luz sala intensidade') for _ in range(51)]
+    vanellope.executar_comando('luz sala mudar cor','azul')
+    [vanellope.undo_comando('luz sala intensidade') for _ in range(20)]
+    vanellope.undo_comando('luz sala power')
 
-    alexa.executar_comando('luz quarto power')
-    [alexa.undo_comando('luz quarto intensidade') for _ in range(51)]
-    [alexa.executar_comando('luz quarto intensidade') for _ in range(20)]
-    alexa.executar_comando('luz quarto mudar cor','roxo')
-    alexa.undo_comando('luz quarto power')
+    vanellope.executar_comando('luz quarto power')
+    [vanellope.undo_comando('luz quarto intensidade') for _ in range(51)]
+    [vanellope.executar_comando('luz quarto intensidade') for _ in range(20)]
+    vanellope.executar_comando('luz quarto mudar cor','roxo')
+    vanellope.undo_comando('luz quarto power')
 
-def run_garagem(alexa: CasaInteligenteInvoker):
+def run_garagem(vanellope: CasaInteligenteInvoker):
     garagem = Garagem()
     garagem_open_command = GaragemOpen(garagem)
     garagem_status_command = GaragemStatus(garagem)
 
-    alexa.addCommands('garagem open',  garagem_open_command)
-    alexa.addCommands('verificarGaragem', garagem_status_command)
+    vanellope.addCommands('garagem open',  garagem_open_command)
+    vanellope.addCommands('verificarGaragem', garagem_status_command)
 
-    alexa.executar_comando('garagem open')
-    alexa.executar_comando('verificarGaragem')
-    alexa.undo_comando('garagem open')
+    vanellope.executar_comando('garagem open')
+    vanellope.executar_comando('verificarGaragem')
+    vanellope.undo_comando('garagem open')
 
 
 def run_TV(vanellope: CasaInteligenteInvoker):
