@@ -52,7 +52,18 @@ def run_light(alexa: CasaInteligenteInvoker):
     alexa.undo_comando('luz quarto power')
 
 def run_garagem(alexa: CasaInteligenteInvoker):
-    pass
+    garagem = Garagem()
+    garagem_open_command = GaragemOpen(garagem)
+    garagem_status_command = GaragemStatus(garagem)
+
+    alexa.addCommands('garagem open',  garagem_open_command)
+    alexa.addCommands('verificarGaragem', garagem_status_command)
+
+    alexa.executar_comando('garagem open')
+    alexa.executar_comando('verificarGaragem')
+    alexa.undo_comando('garagem open')
+
+
 def run_TV(vanellope: CasaInteligenteInvoker):
     TV_quarto = TV('TV do quarto')
     TV_quarto_power_command = TVPowerCommand(TV_quarto)
@@ -108,8 +119,12 @@ def run_computador(vanellope: CasaInteligenteInvoker):
 
 def run():
     vanellope = CasaInteligenteInvoker()
+    print("EXEMPLO TV")
     #run_TV(vanellope)
+    print("EXEMPLO PC")
     run_computador(vanellope)
+    print("EXEMPLO LUZ")
     run_light(vanellope)
-
+    print("EXEMPLO GARAGEM")
+    run_garagem(vanellope)
 run()
