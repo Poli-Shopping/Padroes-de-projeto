@@ -37,7 +37,7 @@ class Luz():
 
     def mudarCor(self,cor):
         self.cor = cor
-        print(f'a cor é {self.cor}')
+        print(f'a cor da luz agora é {self.cor}')
         
     
 

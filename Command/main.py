@@ -35,6 +35,10 @@ def run_light(alexa: CasaInteligenteInvoker):
     alexa.addCommands('luz sala mudar cor', luz_sala_cor_command)
 
     alexa.executar_comando('luz sala power')
+    [alexa.executar_comando('luz sala intensidade') for _ in range(51)]
+    alexa.executar_comando('luz sala mudar cor','azul')
+    [alexa.undo_comando('luz sala intensidade') for _ in range(20)]
+    alexa.undo_comando('luz sala power')
 
 
 def run_TV(vanellope: CasaInteligenteInvoker):
