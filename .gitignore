@@ -1,3 +1,12 @@
 /venv
 venv
 /venv/
+__pycache__
+Command/arcondicionado/__pycache__
+Command/__pycache__
+Command/computador/__pycache__
+Command/garagem/__pycache__
+Command/luz/__pycache__
+Command/roteador/__pycache__
+Command/tv/__pycache__
+Template_method/__pycache__
