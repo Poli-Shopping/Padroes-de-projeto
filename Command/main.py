@@ -12,6 +12,13 @@ from tv.tv_volume_command import TVVolumeCommand
 from tv.tv_mudar_canal_command import TVMudarCanalCommand
 from tv.tv_status_command import TVStatusCommand
 
+from roteador.roteador import Roteador
+from roteador.roteador_power_command import Roteador_power_command
+from roteador.roteador_velocidade_command import Roteador_velocidade_command
+
+from arcondicionado.arCondicionado import ArCondicionado
+from arcondicionado.ar_temperatura_command import Ar_temperatura_command
+from arcondicionado.ar_power_command import Ar_power_command
 
 from computador.computador import Computador
 from computador.computador_power_command import ComputadorPowerCommand
@@ -62,6 +69,43 @@ def run_garagem(vanellope: CasaInteligenteInvoker):
     vanellope.executar_comando('garagem open')
     vanellope.executar_comando('verificarGaragem')
     vanellope.undo_comando('garagem open')
+
+def run_arCondicionado(vanellope: CasaInteligenteInvoker):
+    Ar_quarto = ArCondicionado("Quarto")
+    Ar_quarto_power_command = Ar_power_command(Ar_quarto)
+    Ar_quarto_temperatura_command = Ar_temperatura_command(Ar_quarto)
+
+    Ar_sala = ArCondicionado("Sala")
+    Ar_sala_power_command = Ar_power_command(Ar_sala)
+    Ar_sala_temperatura_command = Ar_temperatura_command(Ar_sala)
+
+    vanellope.addCommands('Ar quarto power',  Ar_quarto_power_command)
+    vanellope.addCommands('Ar quarto temperatura',  Ar_quarto_temperatura_command)
+
+    vanellope.addCommands('Ar sala power',  Ar_sala_power_command)
+    vanellope.addCommands('Ar sala temperatura',  Ar_sala_temperatura_command)
+
+    vanellope.executar_comando('Ar quarto power')
+    [vanellope.executar_comando('Ar quarto temperatura') for _ in range(5)]
+    vanellope.undo_comando('Ar quarto power')
+    [vanellope.undo_comando('Ar quarto temperatura')for _ in range(6)]
+
+    vanellope.executar_comando('Ar sala power')
+    [vanellope.executar_comando('Ar sala temperatura')for _ in range(10)]
+    vanellope.undo_comando('Ar sala power')
+    [vanellope.undo_comando('Ar sala temperatura')for _ in range(6)]
+
+def run_roteador(vanellope: CasaInteligenteInvoker):
+    roteador = Roteador()
+    roteador_power_command = Roteador_power_command(roteador)
+    roteador_velocidade_command = Roteador_velocidade_command(roteador)
+
+    vanellope.addCommands('Roteador ligar!',  roteador_power_command)
+    vanellope.addCommands('Roteador mostrar velocidade',  roteador_velocidade_command)
+
+    vanellope.executar_comando('Roteador ligar!')
+    vanellope.executar_comando('Roteador mostrar velocidade')
+    vanellope.undo_comando('Roteador ligar!')
 
 
 def run_TV(vanellope: CasaInteligenteInvoker):
@@ -127,4 +171,8 @@ def run():
     run_light(vanellope)
     print("EXEMPLO GARAGEM")
     run_garagem(vanellope)
+    print("EXEMPLO AR CONDICIONADO")
+    run_arCondicionado(vanellope)
+    print("EXEMPLO ROTEADOR")
+    run_roteador(vanellope)
 run()
