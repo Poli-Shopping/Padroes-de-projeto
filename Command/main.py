@@ -164,7 +164,7 @@ def run_computador(vanellope: CasaInteligenteInvoker):
 def run():
     vanellope = CasaInteligenteInvoker()
     print("EXEMPLO TV")
-    #run_TV(vanellope)
+    run_TV(vanellope)
     print("EXEMPLO PC")
     run_computador(vanellope)
     print("EXEMPLO LUZ")
